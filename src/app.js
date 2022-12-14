@@ -17,7 +17,9 @@ app.use(express.urlencoded({ extended: false }));
 require(path.join(__dirname, "routes.js"))(app);
 
 app.get("/", (req, res) => {
-  res.end("API under development");
+  res.end(
+    "API under development: visit the documentation here https://documenter.getpostman.com/view/3813904/2s8YzUyhUi"
+  );
 });
 
 // Starting Server
