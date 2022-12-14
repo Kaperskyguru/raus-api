@@ -18,5 +18,9 @@
     "sequelize-cli": "^6.4.1",
     "validatorjs": "^3.22.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
+  }
 }
