@@ -56,12 +56,12 @@ const assignCabin = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
   const validationRule = {
-    cabinId: "string|shouldExist:Cabin,id",
+    cabin_id: "string|shouldExist:Cabin,id",
     name: "string",
     status: "string",
-    phoneNumber: "string",
-    homeAddress: "string",
-    jobTitle: "string",
+    phone_number: "string",
+    home_address: "string",
+    job_title: "string",
     country: "string",
   };
 
