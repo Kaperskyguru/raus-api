@@ -25,12 +25,10 @@ const storeUser = async (req, res, next) => {
 
 const assignCabin = async (req, res, next) => {
   const validationRule = {
-    cabin: "required|string|shouldExist:Cabin,id",
+    cabin: "required|shouldExist:Cabin,id",
   };
 
   Validator(req.body, validationRule, {}, (err, status) => {
-    console.log(err, status);
-
     if (err && err?.errors?.cabin.includes("id already in use")) {
       next();
       return;
@@ -56,7 +54,7 @@ const assignCabin = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
   const validationRule = {
-    cabin_id: "string|shouldExist:Cabin,id",
+    cabin_id: "shouldExist:Cabin,id",
     name: "string",
     status: "string",
     phone_number: "string",
