@@ -29,11 +29,6 @@ const assignCabin = async (req, res, next) => {
   };
 
   Validator(req.body, validationRule, {}, (err, status) => {
-    if (err && err?.errors?.cabin.includes("id already in use")) {
-      next();
-      return;
-    }
-
     if (err && !status) {
       res.status(422).send({
         success: false,
@@ -41,13 +36,7 @@ const assignCabin = async (req, res, next) => {
         data: err,
       });
     } else {
-      res.status(422).send({
-        success: false,
-        message: "Validation failed",
-        data: {
-          errors: { cabin: ["Enter a valid Cabin ID"] },
-        },
-      });
+      next();
     }
   });
 };
