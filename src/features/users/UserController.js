@@ -1,4 +1,5 @@
 const path = require("path");
+const { Op } = require("sequelize");
 const Controller = require("../Controller");
 const User = require(path.join(__dirname, "./../../models")).User;
 const Cabin = require(path.join(__dirname, "./../../models")).Cabin;
@@ -15,11 +16,8 @@ class Users {
       if (status && !status.includes("All")) where.status = status;
 
       if (term)
-        where = {
-          ...where,
-          name: {
-            [Op.iLike]: "%" + term + "%",
-          },
+        where.name = {
+          [Op.iLike]: "%" + term + "%",
         };
 
       const users = await User.findAll({ where });
