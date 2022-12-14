@@ -25,7 +25,10 @@ module.exports = {
     dialect: process.env.DB_DIALECT || "postgres",
     ssl: true,
     dialectOptions: {
-      ssl: true,
+      ssl: {
+        require: true, // This will help you. But you will see nwe error
+        rejectUnauthorized: false, // This line will fix new error
+      },
     },
   },
   use_env_variable: process.env.DATABASE_URL || null,
