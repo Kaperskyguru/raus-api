@@ -23,6 +23,10 @@ module.exports = {
     database: process.env.DB_NAME,
     host: process.env.DB_HOSTNAME,
     dialect: process.env.DB_DIALECT || "postgres",
+    ssl: true,
+    dialectOptions: {
+      ssl: true,
+    },
   },
   use_env_variable: process.env.DATABASE_URL || null,
 };
